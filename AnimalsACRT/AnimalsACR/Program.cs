@@ -17,6 +17,8 @@ namespace AnimalsACR
 
             };
 
+            fox.MakeSound();
+
             Console.WriteLine("# of Animals : {0}", Animals.GetNumAnimals());
             Console.ReadLine();
         }

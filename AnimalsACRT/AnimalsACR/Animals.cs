@@ -1,44 +1,63 @@
 ﻿using System;
-
+using System.Linq;
 
 namespace AnimalsACR
 {
     class Animals
     {
-        public string name;
-        public string sound;
 
-        public Animals()
-        {
-            name = "No Name";
-            sound = "No Sound";
-            numOfAnimals++;
-        }
+        private string name;
+        private string sound;
 
-        public Animals(string name = "No Name")
-        {
-            this.name = name;
-            this.sound = "No Sound";
-            numOfAnimals++;
-        }
+        public const string SHELTER = "Alecu's Home for Animals";
 
-        public Animals(string name = "No Name", string sound = "No Sound")
-        {
-            this.name = name;
-            this.sound = sound;
-            numOfAnimals++;
-        }
+        public readonly int idNum;
 
         public void MakeSound()
         {
             Console.WriteLine("{0} says {1}", name, sound);
         }
-        
-        static int numOfAnimals = 0;
 
-        public static int GetNumAnimals()
+        public Animals()
+            :this("No Name", "No Sound") { }
+        public Animals(string name)
+            :this(name,"No Sound") { }
+        
+        public Animals(string name, string sound)
         {
-            return numOfAnimals;
+
+        }
+
+        public void SetName(string name)
+        {
+            if (!name.Any(char.IsDigit))
+            {
+                this.name = name;
+            }
+            else
+            {
+                this.name = "No Name";
+                Console.WriteLine("Name can't contain numbers");
+            }
+        }
+
+        public  string GetName()
+        {
+            return name;
+        }
+
+        public string Sound
+        {
+            get { return sound; }
+            set
+            {
+                if(value.Length > 10)
+                {
+                    sound = "No Sound";
+                    Console.WriteLine("Sound is to long");
+                }
+                sound = value;
+            }
         }
 
     }
