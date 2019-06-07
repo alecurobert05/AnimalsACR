@@ -10,16 +10,12 @@ namespace AnimalsACR
     {
         static void Main(string[] args)
         {
-            Animals fox = new Animals()
-            {
-                name = "Foxy",
-                sound = "Raaww"
+            Animals cat = new Animals();
+            cat.SetName("Whiskers");
+            cat.Sound = "Meow";
 
-            };
+            Console.WriteLine("The cat is named {0} and says {1}",cat.GetName(), cat.Sound);
 
-            fox.MakeSound();
-
-            Console.WriteLine("# of Animals : {0}", Animals.GetNumAnimals());
             Console.ReadLine();
         }
     }

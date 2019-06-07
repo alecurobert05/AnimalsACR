@@ -19,13 +19,19 @@ namespace AnimalsACR
         }
 
         public Animals()
-            :this("No Name", "No Sound") { }
+            : this("No Name", "No Sound") { }
         public Animals(string name)
-            :this(name,"No Sound") { }
-        
+            : this(name, "No Sound") { }
+
         public Animals(string name, string sound)
         {
+            SetName(name);
+            Sound = sound;
 
+            NumOfAnimals = 1;
+
+            Random rnd = new Random();
+            idNum = rnd.Next(1, 24322353);
         }
 
         public void SetName(string name)
@@ -41,7 +47,7 @@ namespace AnimalsACR
             }
         }
 
-        public  string GetName()
+        public string GetName()
         {
             return name;
         }
@@ -51,7 +57,7 @@ namespace AnimalsACR
             get { return sound; }
             set
             {
-                if(value.Length > 10)
+                if (value.Length > 10)
                 {
                     sound = "No Sound";
                     Console.WriteLine("Sound is to long");
@@ -60,5 +66,14 @@ namespace AnimalsACR
             }
         }
 
+        public string Owner { get; set; } = "No Owner";
+
+        public static int numOfAnimals = 0;
+
+        public static int NumOfAnimals
+        {
+            get { return numOfAnimals; }
+            set { numOfAnimals += value; }
+                }
     }
 }
