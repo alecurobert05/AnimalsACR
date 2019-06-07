@@ -5,51 +5,50 @@ namespace AnimalsACR
 {
     class Animals
     {
-
         private string name;
-        private string sound;
+        protected string sound;
 
-        public const string SHELTER = "Alecu's Home for Animals";
+        protected AnimalIDInfo animalIDInfo = new AnimalIDInfo();
 
-        public readonly int idNum;
-
-        public void MakeSound()
+        public void SetAnimalIDInfo(int idNum, string owner)
         {
-            Console.WriteLine("{0} says {1}", name, sound);
+            animalIDInfo.IDNum = idNum;
+            animalIDInfo.Owner = owner;
+        }
+
+        public void GetAnimalIDInfo()
+        {
+            Console.WriteLine($"{Name} had the ID of {animalIDInfo.IDNum} and is owned by {animalIDInfo.Owner}");
+        }
+
+        public virtual void MakeSound()
+        {
+            Console.WriteLine($"{Name} says {Sound}");
         }
 
         public Animals()
-            : this("No Name", "No Sound") { }
+            :this("No Name", "No Sound") { }
+
         public Animals(string name)
-            : this(name, "No Sound") { }
+            :this(name, "No Sound") { }
 
         public Animals(string name, string sound)
         {
-            SetName(name);
+            Name = name;
             Sound = sound;
-
-            NumOfAnimals = 1;
-
-            Random rnd = new Random();
-            idNum = rnd.Next(1, 24322353);
         }
 
-        public void SetName(string name)
+        public string Name
         {
-            if (!name.Any(char.IsDigit))
+            get { return name; }
+            set
             {
-                this.name = name;
+                if (!value.Any(char.IsDigit))
+                {
+                    name = "No Name";
+                }
+                name = value;
             }
-            else
-            {
-                this.name = "No Name";
-                Console.WriteLine("Name can't contain numbers");
-            }
-        }
-
-        public string GetName()
-        {
-            return name;
         }
 
         public string Sound
@@ -60,20 +59,23 @@ namespace AnimalsACR
                 if (value.Length > 10)
                 {
                     sound = "No Sound";
-                    Console.WriteLine("Sound is to long");
                 }
                 sound = value;
             }
         }
 
-        public string Owner { get; set; } = "No Owner";
-
-        public static int numOfAnimals = 0;
-
-        public static int NumOfAnimals
+        public class AnimalHealth
         {
-            get { return numOfAnimals; }
-            set { numOfAnimals += value; }
+            public bool HealthyWeight(double height, double weight)
+            {
+                double calc = height / weight;
+
+                if ((calc >= .18) && (calc <= .27))
+                {
+                    return true;
                 }
+                else return false;
+            }
+        }
     }
 }

@@ -10,19 +10,49 @@ namespace AnimalsACR
     {
         static void Main(string[] args)
         {
-            Animals cat = new Animals();
-            cat.SetName("Whiskers");
-            cat.Sound = "Meow";
+            Animals whiskers = new Animals()
+            {
+                Name = "Whiskers",
+                Sound = "Mewo"
+            };
 
-            Console.WriteLine("The cat is named {0} and says {1}",cat.GetName(), cat.Sound);
+            Dog grover = new Dog()
+            {
+                Name = "Grover",
+                Sound = " Woof",
+                Sound2 = "Grrr"
+            };
 
-            cat.Owner = "Alecu";
+            grover.Sound = "Woooooof";
 
-            Console.WriteLine("{0} owner is {1}", cat.GetName(), cat.Owner);
+            whiskers.MakeSound();
+            grover.MakeSound();
 
-            Console.WriteLine("{0} Shelter id is {1}", cat.GetName(), cat.idNum);
+            whiskers.SetAnimalIDInfo(12345, "Costin Robert");
+            grover.SetAnimalIDInfo(12346, "Georgiana Vilculescu");
 
-            Console.WriteLine("# of Animals : {0}", Animals.NumOfAnimals);
+            whiskers.GetAnimalIDInfo();
+            grover.GetAnimalIDInfo();
+
+            Animals.AnimalHealth getHealth = new Animals.AnimalHealth();
+
+            Console.WriteLine("Is my animal healthy : {0}", getHealth.HealthyWeight(11, 46));
+
+            Animals monkey = new Animals()
+            {
+                Name = "Happy",
+                Sound = "Eeeee"
+            };
+
+            Animals spot = new Dog()
+            {
+                Name = "Spot",
+                Sound = "Woooooff",
+                Sound2 = "Geerrrrr"
+            };
+
+            monkey.MakeSound();
+            spot.MakeSound();
 
             Console.ReadLine();
         }
