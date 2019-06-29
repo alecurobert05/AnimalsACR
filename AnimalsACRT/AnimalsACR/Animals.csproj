@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4ACA859D-CF2C-4067-88E7-EA8FFDA7AA71}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AnimalsACR</RootNamespace>
-    <AssemblyName>AnimalsACR</AssemblyName>
+    <RootNamespace>Animals</RootNamespace>
+    <AssemblyName>Animals</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,9 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animals.cs" />
-    <Compile Include="AnimalIDInfo.cs" />
     <Compile Include="Dog.cs" />
+    <Compile Include="IAnimalSound.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

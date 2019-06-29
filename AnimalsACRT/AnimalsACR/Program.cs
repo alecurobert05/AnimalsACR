@@ -4,56 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimalsACR
+namespace Animals
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Animals whiskers = new Animals()
+            Dog dog = new Dog();
+
+
+            IAnimalSound[] animals = 
+           {
+                dog,
+           };
+
+            foreach (IAnimalSound animal in animals)
             {
-                Name = "Whiskers",
-                Sound = "Mewo"
-            };
+                string animalName = animal.GetAnimalName();
+                string animalSound = animal.GetAnimalSound();
 
-            Dog grover = new Dog()
-            {
-                Name = "Grover",
-                Sound = " Woof",
-                Sound2 = "Grrr"
-            };
 
-            grover.Sound = "Woooooof";
+                string message = $"{animalName} says {animalSound}.";
+                Console.WriteLine(message);
 
-            whiskers.MakeSound();
-            grover.MakeSound();
-
-            whiskers.SetAnimalIDInfo(12345, "Costin Robert");
-            grover.SetAnimalIDInfo(12346, "Georgiana Vilculescu");
-
-            whiskers.GetAnimalIDInfo();
-            grover.GetAnimalIDInfo();
-
-            Animals.AnimalHealth getHealth = new Animals.AnimalHealth();
-
-            Console.WriteLine("Is my animal healthy : {0}", getHealth.HealthyWeight(11, 46));
-
-            Animals monkey = new Animals()
-            {
-                Name = "Happy",
-                Sound = "Eeeee"
-            };
-
-            Animals spot = new Dog()
-            {
-                Name = "Spot",
-                Sound = "Woooooff",
-                Sound2 = "Geerrrrr"
-            };
-
-            monkey.MakeSound();
-            spot.MakeSound();
-
+            }
             Console.ReadLine();
         }
     }
