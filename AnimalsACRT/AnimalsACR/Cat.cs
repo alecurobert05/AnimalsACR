@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Animals
 {
-    class Cat
+    class Cat : IAnimalSound
     {
+        public string GetAnimalName()
+        {
+            return "Cat";
+        }
+
+        public string GetAnimalSound()
+        {
+            return "Meow";
+        }
     }
 }

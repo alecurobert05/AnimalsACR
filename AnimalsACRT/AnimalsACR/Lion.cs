@@ -8,5 +8,16 @@ namespace Animals
 {
     class Lion
     {
+        public string GetAnimalName()
+        {
+            return "Lion";
+
+        }
+
+        public string GetAnimalSound()
+        {
+            return "Roooaaaaaaaaaaaarrrrrrrrrrrrr!";
+
+        }
     }
 }
