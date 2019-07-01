@@ -11,13 +11,11 @@ namespace Animals
         public string GetAnimalName()
         {
             return "Snake";
-
         }
 
         public string GetAnimalSound()
         {
             return "ssssssssssssss";
-
         }
     }
 }

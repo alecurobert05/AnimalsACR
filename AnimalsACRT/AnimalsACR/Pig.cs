@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Animals
 {
-    class Pig
+    class Pig : IAnimalSound
     {
         public string GetAnimalName()
         {
